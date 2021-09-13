@@ -1,7 +1,7 @@
 resource "google_compute_firewall" "rules" {
   project     = "kubernetes-ramp-up"
-  name        = "my-firewall-rule"
-  network     = "vpc-rampup2"
+  name        = "public-firewall-${var.project_type}"
+  network     = "vpc-${var.proyect_type}"
   description = "Creates firewall rule targeting tagged instances"
 
   allow {
