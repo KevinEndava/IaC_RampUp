@@ -1,3 +1,3 @@
-instance_name = "instancia-chimba"
+instance_name = "instancia"
 region = "us-central1"
-zone = "us-central1-c"
+zone = "us-central1-b"
