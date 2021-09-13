@@ -18,6 +18,6 @@ resource "google_compute_subnetwork" "kubernetes-subnet-rampup2" {
   project = var.project  
   name          = "kubernetes-subnet-${var.project_type}"
   ip_cidr_range = "10.0.2.0/24"
-  network       = google_compute_network.vpc-var.project_type.id
+  network       = google_compute_network.vpc-rampup2.id
   region = var.region
 }
