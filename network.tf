@@ -2,7 +2,7 @@
 resource "google_compute_network" "vpc-rampup2" {
   name = "vpc-${var.project_type}"
   auto_create_subnetworks = "true"
-  project = var.project_type
+  project = var.project
 
 }
 // Create Management Subnet
