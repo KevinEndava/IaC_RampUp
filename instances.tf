@@ -4,7 +4,7 @@ resource "google_compute_instance" "default" {
   machine_type = "e2-small"
   zone         = "us-central1-a"
   project = var.project
-  tags = ["web"]
+  tags = ["public"]
 
   boot_disk {
     initialize_params {
