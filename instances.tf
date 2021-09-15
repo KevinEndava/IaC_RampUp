@@ -8,7 +8,7 @@ resource "google_compute_instance" "default" {
 
   boot_disk {
     initialize_params {
-      image = data.google_compute_image.debian.id
+      image = "ubuntu-2004-focal-v20210908"
     }
   }
 
