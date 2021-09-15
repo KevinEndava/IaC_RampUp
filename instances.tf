@@ -14,8 +14,6 @@ resource "google_compute_instance" "default" {
 
   allow_stopping_for_update = false
 
-  // Local SSD disk
- 
 
   network_interface {
     network = "vpc-${var.project_type}"
@@ -25,9 +23,5 @@ resource "google_compute_instance" "default" {
       // Ephemeral public IP
     }
   }
-
- 
-  metadata_startup_script = "echo hi > /test.txt"
-
-  
+   
 }
