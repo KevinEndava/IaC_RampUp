@@ -6,7 +6,7 @@ resource "google_compute_firewall" "rules" {
 
   allow {
     protocol  = "tcp"
-    ports     = ["80", "8080", "1000-2000"]
+    ports     = ["22","80", "8080", "1000-2000"]
   }
   target_tags = ["public"]
 }
