@@ -15,9 +15,7 @@ resource "google_compute_instance" "default" {
   allow_stopping_for_update = false
 
   // Local SSD disk
-  scratch_disk {
-    interface = "SCSI"
-  }
+ 
 
   network_interface {
     network = "vpc-${var.project_type}"
