@@ -42,7 +42,7 @@ resource "google_compute_router_nat" "nat" {
   project                            = var.project
   subnetwork {
     name                             = google_compute_subnetwork.kubernetes-subnet-rampup2.self_link
-    source_ip_ranges_to_nat          = "ALL_IP_RANGES"
+    source_ip_ranges_to_nat          = "PRIMARY_IP_RANGE"
 
   } 
   
