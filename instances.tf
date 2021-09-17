@@ -1,5 +1,5 @@
 
-resource "google_compute_instance" "cicd-jumpbox-rampup2" {
+resource "google_compute_instance" "default" {
   name         = "cicd-jumpbox-rampup2"
   machine_type = "e2-small"
   zone         = var.zone
@@ -16,8 +16,8 @@ resource "google_compute_instance" "cicd-jumpbox-rampup2" {
 
 
   network_interface {
-    network = google_compute_network.vpc-rampup2.self_link
-    subnetwork = google_compute_subnetwork.kubernetes-subnet-rampup2.self_link
+    network = "vpc-${var.project_type}"
+    subnetwork = "management-subnet-${var.project_type}"
 
     access_config {
       // Ephemeral public IP
@@ -27,31 +27,31 @@ resource "google_compute_instance" "cicd-jumpbox-rampup2" {
 }
 
 
-# resource "google_compute_instance_template" "instance-template-rampup2" {
-#   name_prefix  = "instance-template-rampup2"
-#   machine_type = "e2-small"
-#   region       = var.region
+resource "google_compute_instance_template" "instance_template-rampup2" {
+  name_prefix  = "instance-template-rampup2"
+  machine_type = "e2-small"
+  region       = var.region
 
-#   // boot disk
-#   disk {
-#     source_image = "ubuntu-2004-focal-v20210908"
-#     boot = true
-#   }
+  // boot disk
+  disk {
+    source_image = "ubuntu-2004-focal-v20210908"
+    boot = true
+  }
 
-#   // networking
-#   network_interface {
-#     network = google_compute_network.vpc-rampup2.self_link
-#     subnetwork = google_compute_subnetwork.kubernetes-subnet-rampup2.self_link
+  // networking
+  network_interface {
+    network = "vpc-${var.project_type}"
+    subnetwork = "kubernetes-subnet-${var.project_type}"
 
-#     access_config {
-#       // Ephemeral public IP
-#     }
-#   }
+    access_config {
+      // Ephemeral public IP
+    }
+  }
 
-#   lifecycle {
-#     create_before_destroy = true
-#   }
-# }
+  lifecycle {
+    create_before_destroy = true
+  }
+}
 
 # resource "google_compute_instance_group_manager" "master-node-instance_group_manager" {
 #   name               = "master-node-instance-group-rampup2"
