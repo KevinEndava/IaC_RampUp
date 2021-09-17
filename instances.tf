@@ -34,7 +34,8 @@ resource "google_compute_instance_template" "instance_template-rampup2" {
 
   // boot disk
   disk {
-    boot = "ubuntu-2004-focal-v20210908"
+    source_image = "ubuntu-2004-focal-v20210908"
+    boot = true
   }
 
   // networking
