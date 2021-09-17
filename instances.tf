@@ -16,7 +16,7 @@ resource "google_compute_instance" "cicd-jumpbox-rampup2" {
 
 
   network_interface {
-    network = "vpc-${var.project_type}"
+    network = google_compute_network.vpc-rampup2.self_link
     subnetwork = "management-subnet-${var.project_type}"
 
     access_config {
