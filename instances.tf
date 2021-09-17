@@ -1,5 +1,5 @@
 
-resource "google_compute_instance" "default" {
+resource "google_compute_instance" "cicd-jumpbox-rampup2" {
   name         = "cicd-jumpbox-rampup2"
   machine_type = "e2-small"
   zone         = var.zone
