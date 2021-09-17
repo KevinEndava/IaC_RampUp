@@ -21,3 +21,35 @@ resource "google_compute_subnetwork" "kubernetes-subnet-rampup2" {
   network       = google_compute_network.vpc-rampup2.id
   region = var.region
 }
+
+//cloud router
+resource "google_compute_router" "cloud-router-rampup2" {
+  name    ="cloud-router-rampup2"
+  region  = google_compute_subnetwork.kubernetes-subnet-rampup2.name
+  network = google_compute_network.vpc-rampup2.id
+
+  bgp {
+    asn = 64514
+  }
+}
+//cloud nat
+resource "google_compute_router_nat" "nat" {
+  name                               = "my-router-nat"
+  router                             = google_compute_router.cloud-router-rampup2.name
+  region                             = google_compute_router.cloud-router-rampup2.region
+  nat_ip_allocate_option             = "AUTO_ONLY"
+  source_subnetwork_ip_ranges_to_nat = "LIST_OF_SUBNETWORKS"
+  project                            = var.project
+  subnetwork {
+    name                             = google_compute_subnetwork.kubernetes-subnet-rampup2.self_link
+    source_ip_ranges_to_nat          = "ALL_IP_RANGES"
+
+  } 
+  
+
+  log_config {
+    enable = true
+    filter = "ERRORS_ONLY"
+  }
+}
+//load balancer
