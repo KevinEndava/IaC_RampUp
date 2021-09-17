@@ -27,7 +27,7 @@ resource "google_compute_instance" "cicd-jumpbox-rampup2" {
 }
 
 
-resource "google_compute_instance_template" "instance_template-rampup2" {
+resource "google_compute_instance_template" "instance-template-rampup2" {
   name_prefix  = "instance-template-rampup2"
   machine_type = "e2-small"
   region       = var.region
@@ -40,7 +40,7 @@ resource "google_compute_instance_template" "instance_template-rampup2" {
 
   // networking
   network_interface {
-    network = "vpc-${var.project_type}"
+    network = "vpc-rampup2"
     subnetwork = "kubernetes-subnet-${var.project_type}"
 
     access_config {
