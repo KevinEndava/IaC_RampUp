@@ -33,8 +33,8 @@ resource "google_compute_router" "cloud-router-rampup2" {
   }
 }
 //cloud nat
-resource "google_compute_router_nat" "nat" {
-  name                               = "my-router-nat"
+resource "google_compute_router_nat" "nat-rampup2" {
+  name                               = "router-nat-rampup2"
   router                             = google_compute_router.cloud-router-rampup2.name
   region                             = google_compute_router.cloud-router-rampup2.region
   nat_ip_allocate_option             = "AUTO_ONLY"
@@ -42,7 +42,7 @@ resource "google_compute_router_nat" "nat" {
   project                            = var.project
   subnetwork {
     name                             = google_compute_subnetwork.kubernetes-subnet-rampup2.self_link
-    source_ip_ranges_to_nat          = ALL_IP_RANGES
+    source_ip_ranges_to_nat          = ["ALL_IP_RANGES"]
 
   } 
   
