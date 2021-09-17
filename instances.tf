@@ -40,8 +40,8 @@ resource "google_compute_instance_template" "instance-template-rampup2" {
 
   // networking
   network_interface {
-    network = "vpc-rampup2"
-    subnetwork = "kubernetes-subnet-${var.project_type}"
+    network = google_compute_network.vpc-rampup2.self_link
+    subnetwork = google_compute_subnetwork.kubernetes-subnet-rampup2.self_link
 
     access_config {
       // Ephemeral public IP
