@@ -1,6 +1,6 @@
 //create the VPC
-resource "google_compute_network" "vpc-rampup2" {
-  name = "vpc-${var.project_type}"
+resource "google_compute_network" "vpc-network-rampup2" {
+  name = "vpc-network-${var.project_type}"
   auto_create_subnetworks = false
   project = var.project
   
