@@ -142,8 +142,8 @@ resource "google_compute_instance_group" "worker-node-instance-group-rampup2" {
   description = "Worker node instance group"
 
   instances = [
-    google_compute_instance.worker-engine-rampup2-1.id,
-    google_compute_instance.worker-engine-rampup2-2.id,
+    google_compute_instance.worker-engine-rampup2-1.self_link,
+    google_compute_instance.worker-engine-rampup2-2.self_link,
   ]
 
   named_port {
@@ -166,13 +166,13 @@ resource "google_compute_instance_group" "master-node-instance-group-rampup2" {
   description = "Master node instance group"
 
   instances = [
-    google_compute_instance.master-engine-rampup2-1.id,
-    google_compute_instance.master-engine-rampup2-2.id,
+    google_compute_instance.master-engine-rampup2-1.self_link,
+    google_compute_instance.master-engine-rampup2-2.self_link,
   ]
-  # access_config {
-  #   nat_ip =google_compute_router_nat.ip
+  access_config {
+    nat_ip =google_compute_router_nat.router-nat-rampup2.ip
 
-  # }
+  }
 
   named_port {
     name = "http"

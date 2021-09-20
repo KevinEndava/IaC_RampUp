@@ -1,7 +1,7 @@
 resource "google_compute_firewall" "rules" {
   project     = var.project
   name        = "public-firewall-${var.project_type}"
-  network     = "vpc-${var.project_type}"
+  network     = "vpc-network-${var.project_type}"
   description = "Creates firewall rule targeting tagged instances"
 
   allow {
