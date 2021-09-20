@@ -1,5 +1,5 @@
 instance_name = "instancia"
-region = "us-central2"
-zone = "us-central2-a"
+region = "us-central1"
+zone = "us-central1-a"
 project_type = "rampup2"
 project = "kubernetes-ramp-up"
