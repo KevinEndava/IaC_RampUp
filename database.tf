@@ -10,7 +10,7 @@ resource "google_sql_database_instance" "sql-instance-rampup2" {
   database_version = "MYSQL_5_7"
   region = var.region
   settings {
-    tier = "db-e2-small"
+    tier = "db-n1-standard-2"
   }
 
 }
