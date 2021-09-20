@@ -10,7 +10,7 @@ resource "google_compute_subnetwork" "management-subnet-rampup2" {
   project = var.project  
   name          = "management-subnet-${var.project_type}"
   ip_cidr_range = "10.0.1.0/24"
-  network       = google_compute_network.vpc-rampup2.id
+  network       = google_compute_network.vpc-network-rampup2.id
   region = var.region
 }
 //Create Kubernetes Subnet
@@ -18,7 +18,7 @@ resource "google_compute_subnetwork" "kubernetes-subnet-rampup2" {
   project = var.project  
   name          = "kubernetes-subnet-${var.project_type}"
   ip_cidr_range = "10.0.2.0/24"
-  network       = google_compute_network.vpc-rampup2.id
+  network       = google_compute_network.vpc-network-rampup2.id
   region = var.region
 }
 
@@ -26,7 +26,7 @@ resource "google_compute_subnetwork" "kubernetes-subnet-rampup2" {
 resource "google_compute_router" "cloud-router-rampup2" {
   name    ="cloud-router-rampup2"
   region  = google_compute_subnetwork.kubernetes-subnet-rampup2.name
-  network = google_compute_network.vpc-rampup2.id
+  network = google_compute_network.vpc-network-rampup2.id
 
   bgp {
     asn = 64514
