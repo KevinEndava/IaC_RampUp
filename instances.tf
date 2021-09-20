@@ -16,8 +16,8 @@ resource "google_compute_instance" "default" {
 
 
   network_interface {
-    network = "vpc-${var.project_type}"
-    subnetwork = "management-subnet-${var.project_type}"
+    network = google_compute_network.vpc-rampup2.id
+    subnetwork = google_compute_subnetwork.management-subnet-rampup2.name
 
     access_config {
       // Ephemeral public IP
