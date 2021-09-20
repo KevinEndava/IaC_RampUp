@@ -25,7 +25,7 @@ resource "google_compute_subnetwork" "kubernetes-subnet-rampup2" {
 //cloud router
 resource "google_compute_router" "cloud-router-rampup2" {
   name    ="cloud-router-rampup2"
-  region  = google_compute_subnetwork.kubernetes-subnet-rampup2.name
+  region  = var.region
   network = google_compute_network.vpc-network-rampup2.id
 
   bgp {
