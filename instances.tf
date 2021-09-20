@@ -16,8 +16,8 @@ resource "google_compute_instance" "default" {
 
 
   network_interface {
-    network = google_compute_network.vpc-rampup2.id
-    subnetwork = google_compute_subnetwork.management-subnet-rampup2.name
+    network = google_compute_network.vpc-rampup2.self_link
+    subnetwork = google_compute_subnetwork.management-subnet-rampup2.self_link
 
     access_config {
       // Ephemeral public IP
@@ -46,7 +46,7 @@ resource "google_compute_instance" "master-engine-rampup2-1" {
 
   network_interface {
     network = google_compute_network.vpc-rampup2.self_link
-    subnetwork = google_compute_subnetwork.kubernetes-subnet-rampup2.name
+    subnetwork = google_compute_subnetwork.kubernetes-subnet-rampup2.self_link
 
     access_config {
       // Ephemeral public IP///////////////////////////////////////////////////
@@ -75,8 +75,7 @@ resource "google_compute_instance" "master-engine-rampup2-2" {
 
   network_interface {
     network = google_compute_network.vpc-rampup2.self_link
-    subnetwork = google_compute_subnetwork.kubernetes-subnet-rampup2.name
-
+    subnetwork = google_compute_subnetwork.kubernetes-subnet-rampup2.selflink
     access_config {
       // Ephemeral public IP///////////////////////////////////////////////////
     }
@@ -104,7 +103,7 @@ resource "google_compute_instance" "worker-engine-rampup2-1" {
 
   network_interface {
     network = google_compute_network.vpc-rampup2.self_link
-    subnetwork = google_compute_subnetwork.kubernetes-subnet-rampup2.name
+    subnetwork = google_compute_subnetwork.kubernetes-subnet-rampup2.self_link
 
     access_config {
       // Ephemeral public IP///////////////////////////////////////////////////
@@ -133,7 +132,7 @@ resource "google_compute_instance" "worker-engine-rampup2-2" {
 
   network_interface {
     network = google_compute_network.vpc-rampup2.self_link
-    subnetwork = google_compute_subnetwork.kubernetes-subnet-rampup2.name
+    subnetwork = google_compute_subnetwork.kubernetes-subnet-rampup2.self_link
 
     access_config {
       // Ephemeral public IP///////////////////////////////////////////////////
