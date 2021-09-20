@@ -48,9 +48,7 @@ resource "google_compute_instance" "master-engine-rampup2-1" {
     network = google_compute_network.vpc-rampup2.self_link
     subnetwork = google_compute_subnetwork.kubernetes-subnet-rampup2.self_link
 
-    access_config {
-      // Ephemeral public IP///////////////////////////////////////////////////
-    }
+    
   }
    
 }
@@ -76,9 +74,7 @@ resource "google_compute_instance" "master-engine-rampup2-2" {
   network_interface {
     network = google_compute_network.vpc-rampup2.self_link
     subnetwork = google_compute_subnetwork.kubernetes-subnet-rampup2.self_link
-    access_config {
-      // Ephemeral public IP///////////////////////////////////////////////////
-    }
+    
   }
    
 }
@@ -105,9 +101,7 @@ resource "google_compute_instance" "worker-engine-rampup2-1" {
     network = google_compute_network.vpc-rampup2.self_link
     subnetwork = google_compute_subnetwork.kubernetes-subnet-rampup2.self_link
 
-    access_config {
-      // Ephemeral public IP///////////////////////////////////////////////////
-    }
+    
   }
    
 }
@@ -134,9 +128,7 @@ resource "google_compute_instance" "worker-engine-rampup2-2" {
     network = google_compute_network.vpc-rampup2.self_link
     subnetwork = google_compute_subnetwork.kubernetes-subnet-rampup2.self_link
 
-    access_config {
-      // Ephemeral public IP///////////////////////////////////////////////////
-    }
+    
   }
    
 }
