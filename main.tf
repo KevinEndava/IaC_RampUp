@@ -10,7 +10,7 @@ terraform {
 provider "google" {
   
 
-  project = "kubernetes-ramp-up"
+  project = var.project
   region  = var.region
   zone    = var.zone
 }
