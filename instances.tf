@@ -1,7 +1,7 @@
 //cicd machine
 resource "google_compute_instance" "default" {
   name         = "cicd-jumpbox-rampup2"
-  machine_type = "e2-small"
+  machine_type = "e2-medium"
   zone         = var.zone
   project = var.project
   tags = ["public"]
@@ -30,7 +30,7 @@ resource "google_compute_instance" "default" {
 
 resource "google_compute_instance" "master-engine-rampup2-1" {
   name         = "master-engine-rampup2-1"
-  machine_type = "e2-small"
+  machine_type = "e2-medium"
   zone         = var.zone
   project = var.project
   tags = ["public"]
@@ -57,7 +57,7 @@ resource "google_compute_instance" "master-engine-rampup2-1" {
 
 resource "google_compute_instance" "master-engine-rampup2-2" {
   name         = "master-engine-rampup2-2"
-  machine_type = "e2-small"
+  machine_type = "e2-medium"
   zone         = var.zone
   project = var.project
   tags = ["public"]
@@ -83,7 +83,7 @@ resource "google_compute_instance" "master-engine-rampup2-2" {
 
 resource "google_compute_instance" "worker-engine-rampup2-1" {
   name         = "worker-engine-rampup2-1"
-  machine_type = "e2-small"
+  machine_type = "e2-medium"
   zone         = var.zone
   project = var.project
   tags = ["public"]
@@ -110,7 +110,7 @@ resource "google_compute_instance" "worker-engine-rampup2-1" {
 
 resource "google_compute_instance" "worker-engine-rampup2-2" {
   name         = "worker-engine-rampup2-2"
-  machine_type = "e2-small"
+  machine_type = "e2-medium"
   zone         = var.zone
   project = var.project
   tags = ["public"]
@@ -188,7 +188,7 @@ resource "google_compute_instance_group" "master-node-instance-group-rampup2" {
 }
 # resource "google_compute_instance_template" "instance_template-rampup2" {
 #   name_prefix  = "instance-template-rampup2"
-#   machine_type = "e2-small"
+#   machine_type = "e2-medium"
 #   region       = var.region
 
 #   // boot disk
