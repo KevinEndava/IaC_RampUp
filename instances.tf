@@ -12,7 +12,7 @@ resource "google_compute_instance" "default" {
     }
   }
 
-  allow_stopping_for_update = false
+  allow_stopping_for_update = true
 
 
   network_interface {
@@ -41,7 +41,7 @@ resource "google_compute_instance" "master-engine-rampup2-1" {
     }
   }
 
-  allow_stopping_for_update = false
+  allow_stopping_for_update = true
 
 
   network_interface {
@@ -68,7 +68,7 @@ resource "google_compute_instance" "master-engine-rampup2-2" {
     }
   }
 
-  allow_stopping_for_update = false
+  allow_stopping_for_update = true
 
 
   network_interface {
@@ -94,7 +94,7 @@ resource "google_compute_instance" "worker-engine-rampup2-1" {
     }
   }
 
-  allow_stopping_for_update = false
+  allow_stopping_for_update = true
 
 
   network_interface {
@@ -121,7 +121,7 @@ resource "google_compute_instance" "worker-engine-rampup2-2" {
     }
   }
 
-  allow_stopping_for_update = false
+  allow_stopping_for_update = true
 
 
   network_interface {
