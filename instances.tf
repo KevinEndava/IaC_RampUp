@@ -169,11 +169,7 @@ resource "google_compute_instance_group" "master-node-instance-group-rampup2" {
     google_compute_instance.master-engine-rampup2-1.self_link,
     google_compute_instance.master-engine-rampup2-2.self_link,
   ]
-  # access_config {
-  #   nat_ip =google_compute_router_nat.router-nat-rampup2.ip
-
-  # }
-
+  
   named_port {
     name = "http"
     port = "8080"
