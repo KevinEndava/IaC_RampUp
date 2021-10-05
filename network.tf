@@ -53,3 +53,4 @@ resource "google_compute_router_nat" "nat-rampup2" {
   }
 }
 //load balancer
+

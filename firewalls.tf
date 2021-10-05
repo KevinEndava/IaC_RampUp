@@ -35,7 +35,7 @@ resource "google_compute_firewall" "fw-allow-hc-rampup2" {
   name        = "fw-allow-hc-access"
   network     = "vpc-network-${var.project_type}"
   description = "Creates firewall to allow healtcheck."
-  source_ranges = [ "10.0.1.0/24", "10.0.2.0/24" ]
+  source_ranges = [ "130.211.0.0/22","35.191.0.0/16" ]
   allow {
     protocol  = "tcp"
     ports     = ["22","80", "8080", "1000-2000"]
