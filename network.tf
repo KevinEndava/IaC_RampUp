@@ -52,5 +52,36 @@ resource "google_compute_router_nat" "nat-rampup2" {
     filter = "ERRORS_ONLY"
   }
 }
+
+//public ip for the load balancer
+
+resource "google_compute_global_address" "default" {
+  name = "global-appserver-ip"
+}
+
+//health check
+
+resource "google_compute_http_health_check" "default" {
+  name         = "authentication-health-check"
+  request_path = "/health_check"
+
+  timeout_sec        = 1
+  check_interval_sec = 1
+}
+
+//target pool
+
+resource "google_compute_target_pool" "default" {
+  name = "instance-pool"
+
+  instances = [
+    "us-central1-a/myinstance1",
+    "us-central1-b/myinstance2",
+  ]
+
+  health_checks = [
+    google_compute_http_health_check.default.name,
+  ]
+}
 //load balancer
 
