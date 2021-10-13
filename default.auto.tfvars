@@ -1,5 +1,5 @@
 instance_name = "instancia"
 region = "us-central1"
 zone = "us-central1-a"
-project_type = "Rampup2"
-project = "Rampup2"
+project_type = "rampup21"
+project = "rampup21"
