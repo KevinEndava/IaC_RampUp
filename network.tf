@@ -88,7 +88,9 @@ resource "google_compute_target_pool" "default" {
 resource "google_compute_forwarding_rule" "default" {
   name       = "website-forwarding-rule"
   target     = google_compute_target_pool.default.id
+  ip_protocol = "TCP"
   port_range = "32132"
+  load_balancing_scheme = "EXTERNAL"
   ip_address = google_compute_global_address.default.id
   
 }
