@@ -75,8 +75,8 @@ resource "google_compute_target_pool" "default" {
   name = "instance-pool"
 
   instances = [
-    "us-central1-a/myinstance1",
-    "us-central1-b/myinstance2",
+    "us-central1-a/worker-engine-rampup2-1",
+    "us-central1-a/worker-engine-rampup2-1",
   ]
 
   health_checks = [
@@ -84,4 +84,12 @@ resource "google_compute_target_pool" "default" {
   ]
 }
 //load balancer
+
+resource "google_compute_forwarding_rule" "default" {
+  name       = "website-forwarding-rule"
+  target     = google_compute_target_pool.default.id
+  port_range = "32132"
+  ip_address = google_compute_global_address.default.id
+  
+}
 
