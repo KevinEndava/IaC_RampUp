@@ -76,7 +76,7 @@ resource "google_compute_target_pool" "default" {
 
   instances = [
     "us-central1-a/worker-engine-rampup2-1",
-    "us-central1-a/worker-engine-rampup2-1",
+    "us-central1-a/worker-engine-rampup2-2",
   ]
 
   health_checks = [
