@@ -91,7 +91,7 @@ resource "google_compute_forwarding_rule" "default" {
   ip_protocol = "TCP"
   port_range = "32132"
   load_balancing_scheme = "EXTERNAL"
-  ip_address = google_compute_address.default.id
+  ip_address = google_compute_address.default.self_link
   
 }
 
