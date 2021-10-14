@@ -55,7 +55,7 @@ resource "google_compute_router_nat" "nat-rampup2" {
 
 //public ip for the load balancer
 
-resource "google_compute_global_address" "default" {
+resource "google_compute_address" "default" {
   name = "global-appserver-ip"
 }
 
